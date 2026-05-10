@@ -11,4 +11,37 @@ public class CorporateWellnessPlan extends MembershipPlan implements RemoteAcces
         this.onlineDashboard = onlineDashboard;
     }
 
+    @Override
+    public String getPlanType() {
+        return "Corporate Wellness Plan";
+    }
+
+    @Override
+    public double calculateMonthlyNetPrice() {
+        double monthlyNetPrice = getBaseMonthlyFee();
+        monthlyNetPrice += employeeCount * 18;
+        monthlyNetPrice += workshopsPerMonth * 220;
+        if (employeeCount >= 20) {
+            monthlyNetPrice -= monthlyNetPrice * 0.12;
+        }
+        if (onlineDashboard == true) {
+            monthlyNetPrice += 80;
+        }
+        return monthlyNetPrice;
+    }
+
+    @Override
+    public boolean hasOnlineAccess() {
+        return onlineDashboard;
+    }
+
+    @Override
+    public boolean canFreeze() {
+        boolean canFreeze = false;
+        if (getMonths() >= 6 && workshopsPerMonth == 0) {
+            canFreeze = true;
+        }
+        return canFreeze;
+    }
+
 }

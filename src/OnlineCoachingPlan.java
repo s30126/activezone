@@ -11,4 +11,30 @@ public class OnlineCoachingPlan extends MembershipPlan implements RemoteAccess {
         this.recordedLibraryAccess = recordedLibraryAccess;
     }
 
+    @Override
+    public String getPlanType() {
+        return "Online Coaching Plan";
+    }
+
+    @Override
+    public double calculateMonthlyNetPrice() {
+        double monthlyNetPrice = getBaseMonthlyFee();
+        monthlyNetPrice += videoConsultations * 45;
+        if (mealPlanIncluded == true) {
+            monthlyNetPrice += 60;
+        }
+        if (recordedLibraryAccess == true) {
+            monthlyNetPrice += 20;
+        }
+        if (isAutoRenew() == true) {
+            monthlyNetPrice -= 12;
+        }
+        return monthlyNetPrice;
+    }
+
+    @Override
+    public boolean hasOnlineAccess() {
+        return true;
+    }
+
 }
