@@ -35,4 +35,13 @@ public class PersonalTrainingPlan extends MembershipPlan {
         return monthlyNetPrice;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", sessionsPerMonth=" + sessionsPerMonth +
+                ", trainerLevel=" + trainerLevel +
+                ", dietConsultationIncluded=" + dietConsultationIncluded +
+                '}';
+    }
+
 }

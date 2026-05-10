@@ -37,4 +37,13 @@ public class OnlineCoachingPlan extends MembershipPlan implements RemoteAccess {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", videoConsultations=" + videoConsultations +
+                ", mealPlanIncluded=" + mealPlanIncluded +
+                ", recordedLibraryAccess=" + recordedLibraryAccess +
+                '}';
+    }
+
 }

@@ -44,4 +44,12 @@ public class CorporateWellnessPlan extends MembershipPlan implements RemoteAcces
         return canFreeze;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", employeeCount=" + employeeCount +
+                ", workshopsPerMonth=" + workshopsPerMonth +
+                ", onlineDashboard=" + onlineDashboard +
+                '}';
+    }
 }

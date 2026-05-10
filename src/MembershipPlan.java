@@ -53,16 +53,15 @@ public abstract class MembershipPlan implements Billable {
                 ", cena całego planu: " + calculateTotalNetPrice());
     }
 
-
     @Override
     public String toString() {
-        return "MembershipPlan{" +
+        return getPlanType() + "{" +
                 "planCode='" + planCode + '\'' +
                 ", clientName='" + clientName + '\'' +
                 ", months=" + months +
                 ", baseMonthlyFee=" + baseMonthlyFee +
-                ", autoRenew=" + autoRenew +
-                '}';
+                ", autoRenew=" + autoRenew;
 
     }
+
 }
